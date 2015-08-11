@@ -1,3 +1,6 @@
 [submodule "filemanager"]
 	path = bash/filemanager
 	url = https://github.com/m-messiah/filemanager
+[submodule "python/ipgeobase_importer"]
+	path = python/ipgeobase_importer
+	url = https://github.com/m-messiah/ipgeobase_importer
