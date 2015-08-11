@@ -1,3 +1,3 @@
 [submodule "filemanager"]
-	path = filemanager
+	path = bash/filemanager
 	url = https://github.com/m-messiah/filemanager
