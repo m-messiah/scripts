@@ -2,26 +2,25 @@
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.Utils import formatdate
+from email.utils import formatdate
 import smtplib
 
-
+filename="269.zip"
+email="malware-report@example.com"
 msg = MIMEMultipart(
-    From=settings.EMAIL,
-    To="support@esetnod32.ru",
+    From=email,
+    To="test@example.com",
     Subject="Potential malware",
     Date=formatdate(localtime=True)
 )
-msg.attach(
-    MIMEText("Additional information at "
-             "http://cuckoo.skbkontur.ru/analysis/%s/" % task_id))
+msg.attach(MIMEText("Additional information"))
 with open(filename, "rb") as archive:
     msg.attach(MIMEApplication(
         archive.read(),
-        Content_Disposition='attachment; filename="%s"'
-                            % file_info["sha256"] + ".zip",
-        Name=file_info["sha256"] + ".zip"
+        Content_Disposition='attachment; filename="269.zip"',
+        Name="269.zip"
     ))
+
 smtp = smtplib.SMTP("smtp")
-smtp.sendmail(settings.EMAIL, "support@esetnod32.ru", msg.as_string())
+smtp.sendmail(email, "test@example.com", msg.as_string())
 smtp.close()
