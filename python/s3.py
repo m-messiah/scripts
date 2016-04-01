@@ -8,8 +8,8 @@ secret_key = ''
 conn = boto.connect_s3(
     aws_access_key_id = access_key,
     aws_secret_access_key = secret_key,
-    host = 'ceph-sd1.kontur.ru',
-    is_secure=False)
+    host = '',
+    calling_format = boto.s3.connection.OrdinaryCallingFormat())
 
 print "Buckets:"
 for bucket in conn.get_all_buckets():
