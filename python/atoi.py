@@ -6,11 +6,11 @@ def IP2Int(ip):
 
 
 def Int2IP(ipnum):
-    o = [int(ipnum / 16777216) % 256,]
-    o.append(int(ipnum / 65536) % 256)
-    o.append(int(ipnum / 256) % 256)
-    o.append(int(ipnum) % 256)
-    return ".".join(map(str, o))
+    o = []
+    for i in range(0, 4):
+        o.append(ipnum % 256)
+        ipnum /= 256
+    return ".".join(map(str, o[::-1]))
 
 if __name__ == "__main__":
     import sys
